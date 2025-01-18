@@ -7,7 +7,15 @@
 var path = require('path'),
     config = require('webgme-engine/config/config.default');
 
+config.authentication.enable = true;
+config.authentication.allowUserRegistration = true;
 config.authentication.userManagementPage = require.resolve('webgme-user-management-page');
+config.authentication.adminAccount="admin+huangjian";
+
+// server
+config.server.port = 9000;
+config.mongo.uri = 'mongodb://127.0.0.1:27017/webgme-demo';
+
 
 // Overwrite the appDir from webgme-engine (it only provides a dummy app).
 config.client.appDir = path.join(__dirname, '../src/client');
